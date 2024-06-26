@@ -2,10 +2,12 @@ const express = require("express");
 const connection = require("./config/db");
 const userRouter = require("./routes/user.routes");
 const noteRouter = require("./routes/note.route");
+const cors = require("cors")
 const PORT = process.env.PORT || 3000;
 
 const app = express();
 app.use(express.json());
+app.user(cors())
 app.use("/user", userRouter);
 app.use("/notes",noteRouter)
 
